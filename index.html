@@ -1,0 +1,104 @@
+<!DOCTYPE html> 
+<html lang="en">
+ 	<head>  
+ 		<meta charset="utf-8"> 
+
+ 		<title>Audio tag js</title> 
+
+ 		<meta name="description" content="The HTML5 js audio">  
+ 		<meta name="author" content="">  
+ 	
+ 		<link rel="shortcut icon" href="icons/logo.png" type="image/x-icon">
+ 		<link rel="stylesheet" href="main.css">
+ 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+ 	</head>
+ 	<body onclick="document.querySelector('.error').style.display = 'none';">  
+ 		
+
+ 		<div class="plus" onclick="onAlla.style.display = 'flex';">
+ 			<img src="icons/svg/search.svg" alt="">
+ 		</div>
+
+		<div class="notif">
+			<div class="some"  onclick="onAlla.style.display = 'none';"></div>
+			<div class="other"  onclick="onAlla.style.display = 'none';"></div>
+
+				<label for=""> Search: <input type="text" class="inputs" id="3"></label>
+				<input type="submit" value="ADD" class="subm" onclick="addObj()" >
+
+			<div class="hey"  onclick="onAlla.style.display = 'none';"></div>
+			<div class="some"  onclick="onAlla.style.display = 'none';"></div>
+		</div>
+ 		<div class="allCont" >
+ 			<div class="go-prev" onclick="playlist()">
+ 				<img src="icons/svg/back.svg" alt="" width="32px">
+ 			</div>
+ 			<div style="position: relative;display: flex; justify-content: center;align-items: center; ">
+ 				<img src="icons/petqi.jpg" class="clip-pather" alt="sorry" id="cover">
+ 				
+			</div>
+			<div id="minusodd">
+			 	<p class="line" maxlength="10"><b id="singName" style="text-align: center;">Song name</b></p>
+			 	<p class="line" id='sngName'>Singer name</p>
+			
+			 <input type="range" oninput="slide()" id="file" name="vol" min="0" value="0" max="50" class="slider" disabled="true">
+			
+
+ 			<pre id="curTime">
+			</pre>	
+			<div style="margin: 0;padding: 0;">
+				<img src="icons/svg/volume.svg" alt="Sorry" width="30px" style="" onclick="volumemin()">
+				<img src="icons/svg/volume (1).svg" alt="Sorry" width="30px" style="" onclick="volumehigh()">
+			</div>
+
+ 			<br> 		
+			<br>
+			<div class="container">
+	 			<audio id="music">
+				  <source src="audios/1.wav" type="audio/mp3" id="source">
+				  Your browser does not support the audio element.
+				</audio>
+				<div class="nerq-cont" style="display: flex;justify-content: center;align-items: center; margin:10px 0 50px 0;" >
+					<div class="yahoo">
+					<img src="icons/svg/previous.svg" alt="Sorry" onclick="prev()" width="13px">
+					
+					<img src="icons/svg/fwd.svg" alt="Sorry" width="17px" style="transform: rotate(180deg);" onclick="goTo(-5)">
+					</div>
+					<img id="playpause" src="icons/svg/play.svg" width="50px" alt="Sorry" onclick="startPlay()">
+					<div class="yahoo2">
+					<img src="icons/svg/fwd.svg" alt="Sorry" width="17px" onclick="goTo(5)">
+					<img src="icons/svg/next.svg" alt="Sorry" onclick="next()" width="13px">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="table" id="table">
+				<table >
+					<thead>
+					  <tr>
+					    <th>Song</th>
+					    <th>Singer</th>
+					    <th>Album</th>
+					  </tr>
+					</thead>
+					<tbody id="tbody">
+						
+					</tbody>
+				</table>
+			</div>
+			<div id="allCont">
+				
+			</div>
+		</div>
+		<div class="error" id="error">
+			Error Invalid author name, Maybe you entered not valid name or not right name
+			<hr color="#FF6E81" width = '90%'>
+			<img src="icons/svg/error.svg" alt="" width="50px">
+		</div>
+		<div class="sucess">
+			<img src="icons/svg/tick.svg" alt="">
+		</div>
+		<script src="script.js"></script>
+ 	</body>
+</html>
+
