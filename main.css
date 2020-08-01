@@ -231,13 +231,13 @@ pre {
 
 }
 .other {
-	width: 500px;
+	width: 30%;
 	height: 500px;
 	position: absolute;
 	left: 0;
 }
 .hey {
-	width: 500px;
+	width: 30%;
 	height: 500px;
 	position: absolute;
 	right: 0;

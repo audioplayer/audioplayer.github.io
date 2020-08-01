@@ -244,7 +244,6 @@ function addObj(){
   				}
   			];	
 				main.push(temp)
-				console.log(temp)
 			})
   		if(main.length <= 1) {
 			document.getElementById('error').style.display = "flex";
