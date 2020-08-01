@@ -4,16 +4,13 @@ let mus = 1;
 let audioCou = 0;
 let tog = 2;
 let oddprev = 2;
+let oddlove = 2;
 
-let main = [{
-	src:'audios/1.wav',
-	name:'Example',
-	author:'Someone'
-}]
-let love = [{
-	
-}]
-const music = ["audios/1.wav", "audios/2.mp3", "audios/3.mp3"]
+let main = []
+let lovi = []
+
+lovemus = localStorage.getItem("lovemusics");
+lovi = JSON.parse(lovemus);
 
 let onAlla = document.querySelector('.notif')
 onAlla.style.height = window.innerHeight + 'px';
@@ -121,11 +118,31 @@ function next () {
 	let singName = document.getElementById("singName")
 	let cover = document.getElementById('cover')
 	let cont = document.getElementById('allCont')
-
 	audioCou += 1;
 	if(audioCou === main.length) {
 		audioCou = 0;
 	}
+	if(main == lovi) {
+		let txt = main[audioCou].author;
+	let sing = main[audioCou].name
+
+	if(sing.length > 20) {
+		sing = sing.split('').slice(0,20).join(" ") + "..."
+	}
+	if(txt.length > 20) {
+		txt = sing.split('').slice(0,20).join(" ") + "..."
+	}
+	
+
+	source.src = main[audioCou].src;
+	sngName.innerHTML = txt;
+	singName.innerHTML = sing;
+	cover.setAttribute('src', main[audioCou].cover)
+	cont.style.backgroundImage = `url(${main[audioCou].autpic}`;
+	mus.load()
+	startPlayOth()
+	}
+	else{
 	let txt = main[audioCou][0].author;
 	let sing = main[audioCou][0].name
 
@@ -144,7 +161,7 @@ function next () {
 	cont.style.backgroundImage = `url(${main[audioCou][0].autpic}`;
 	mus.load()
 	startPlayOth()
-	
+	}
 }
 function prev() {
 	let mus = document.getElementById("music");
@@ -230,6 +247,9 @@ function addObj(){
 			document.querySelector('.sucess').style.display = 'block'
 			setTimeout(function (){document.querySelector('.sucess').style.display = 'none'}, 3000)
 			}
+		next()
+		startPlay()
+		interVal()
 	});})
 	.catch(err => {
 		let error = document.createTextNode(err);
@@ -292,4 +312,70 @@ function playlist(){
 		minusodd.style.display = 'block';
 		table.style.display = 'none'
 	}
+}
+
+function addlove() {
+	document.querySelector('.notif-suc').style.display = 'block';
+	setTimeout(function() {document.querySelector('.notif-suc').style.display = 'block';}, 2000)
+
+	lovi.push(main[audioCou][0])
+
+	jsonmus = JSON.stringify(lovi);
+	localStorage.setItem("lovemusics", jsonmus);
+
+}
+function lovelist() {
+
+	let minusodd = document.getElementById('minusodd')
+	let table = document.getElementById('table')
+	let tbody = document.querySelector('tbody')
+	let table2 = document.querySelector('table')
+	let tbode = document.createElement('tbody')
+	let button = document.createElement('button')
+	let findButton = document.querySelector('.run-butt')
+
+	if(document.body.contains(findButton)){
+		findButton.remove()
+	}
+	button.setAttribute('class', 'run-butt')
+	button.innerHTML = 'Run This Playlist';
+	button.setAttribute('onclick', 'maintolove()')
+	
+	table.prepend(button)
+
+	
+	tbody.remove()
+	table2.append(tbode)
+	for(let j = 1; j < lovi.length; j++){
+
+		let tr = document.createElement('tr')
+		let th = document.createElement('th')
+		let th2 = document.createElement('th')
+		let th3 = document.createElement('th')
+		
+		let txt = document.createTextNode(lovi[j].author) ;
+		let sing = document.createTextNode(j + ") " +lovi[j].name);
+		let album = document.createTextNode(lovi[j].album);
+
+		tbode.append(tr)
+		tr.append(th)
+		th.append(sing)
+		tr.append(th2)
+		th2.append(txt)
+		tr.append(th3)
+		th3.append(album)
+	}
+	if(oddlove % 2 === 0) {
+		++oddlove
+		minusodd.style.display = 'none';
+		table.style.display = 'block'
+	}
+	else {
+		++oddlove
+		minusodd.style.display = 'block';
+		table.style.display = 'none'
+	}
+}
+function maintolove() {
+	main = lovi;
 }

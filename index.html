@@ -3,7 +3,7 @@
  	<head>  
  		<meta charset="utf-8"> 
 
- 		<title>Audio tag js</title> 
+ 		<title>AudioPlayer search</title> 
 
  		<meta name="description" content="The HTML5 js audio">  
  		<meta name="author" content="">  
@@ -33,6 +33,9 @@
  			<div class="go-prev" onclick="playlist()">
  				<img src="icons/svg/back.svg" alt="" width="32px">
  			</div>
+ 			<div class="love-list" onclick="lovelist()">
+ 				<img src="icons/svg/playlist.svg" alt="" width="32px">
+ 			</div>
  			<div style="position: relative;display: flex; justify-content: center;align-items: center; ">
  				<img src="icons/petqi.jpg" class="clip-pather" alt="sorry" id="cover">
  				
@@ -55,7 +58,7 @@
 			<br>
 			<div class="container">
 	 			<audio id="music">
-				  <source src="audios/1.wav" type="audio/mp3" id="source">
+				  <source src="" type="audio/mp3" id="source">
 				  Your browser does not support the audio element.
 				</audio>
 				<div class="nerq-cont" style="display: flex;justify-content: center;align-items: center; margin:10px 0 50px 0;" >
@@ -69,6 +72,9 @@
 					<img src="icons/svg/fwd.svg" alt="Sorry" width="17px" onclick="goTo(5)">
 					<img src="icons/svg/next.svg" alt="Sorry" onclick="next()" width="13px">
 						</div>
+					</div>
+					<div class="love" onclick="addlove()">
+						<img src="icons/svg/heart.svg" alt="">
 					</div>
 				</div>
 			</div>
@@ -97,6 +103,15 @@
 		</div>
 		<div class="sucess">
 			<img src="icons/svg/tick.svg" alt="">
+		</div>
+		<div class="notif-suc">
+			<p>Added To your playlist!</p>
+			<span>Click on </span>
+			<span class="" onclick="lovelist()" style="margin: 0 10px;">
+ 				<img src="icons/svg/playlist.svg" alt="" width="32px">
+ 			</span>
+ 			<span>to see & run playlist</span>
+
 		</div>
 		<script src="script.js"></script>
  	</body>

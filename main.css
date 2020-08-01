@@ -315,3 +315,48 @@ table tbody tr:nth-child(odd){
 th {
 	padding: 10px;
 }
+.love {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	bottom: 32px;
+	right: 32px;
+}
+.love-list {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+	z-index: 3;
+}
+.notif-suc {
+	display: none;
+	position: absolute;
+	bottom: 50px;
+	right: 50px;
+	width: 400px;
+	height: 100px;
+	background: #fff;
+	z-index: 4;
+	border: 1px solid #000;
+
+}
+.run-butt {
+	border: none;
+	padding: 5px 50px;
+	background: rgba(255,255,255,0.6);
+	font-family: 'Roboto';
+	margin-top: 20px;
+	border-bottom: 5px solid #000;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 500ms all ease;
+}
+.run-butt:hover {
+	background: rgba(255,255,255,1);
+}
+input:focus, button:focus {
+	outline: none;
+}
