@@ -9,8 +9,6 @@ let oddlove = 2;
 let main = []
 let lovi = []
 
-lovemus = localStorage.getItem("lovemusics");
-lovi = JSON.parse(lovemus);
 
 let onAlla = document.querySelector('.notif')
 onAlla.style.height = window.innerHeight + 'px';
@@ -239,6 +237,7 @@ function addObj(){
   				}
   			];	
 				main.push(temp)
+				console.log(temp)
 			})
   		if(main.length <= 1) {
 			document.getElementById('error').style.display = "flex";
@@ -325,6 +324,9 @@ function addlove() {
 
 }
 function lovelist() {
+	lovemus = localStorage.getItem("lovemusics");
+	lovi = JSON.parse(lovemus);
+
 
 	let minusodd = document.getElementById('minusodd')
 	let table = document.getElementById('table')
