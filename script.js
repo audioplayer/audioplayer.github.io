@@ -7,7 +7,14 @@ let oddprev = 2;
 let oddlove = 2;
 
 let main = []
-let lovi = []
+let lovi = [{
+	album: "Curtain Call: The Hits",
+	author: "Eminem",
+	autpic: "https://cdns-images.dzcdn.net/images/artist/0707267475580b1b82f4da20a1b295c6/1000x1000-000000-80-0-0.jpg",
+	cover: "https://cdns-images.dzcdn.net/images/cover/e2b36a9fda865cb2e9ed1476b6291a7d/1000x1000-000000-80-0-0.jpg",
+	name: "Lose Yourself",
+	src: "https://cdns-preview-1.dzcdn.net/stream/c-13039fed16a173733f227b0bec631034-12.mp3"
+	}]
 
 
 let onAlla = document.querySelector('.notif')
@@ -243,8 +250,8 @@ function addObj(){
 			document.getElementById('error').style.display = "flex";
 		}
 		else {
-			document.querySelector('.sucess').style.display = 'block'
-			setTimeout(function (){document.querySelector('.sucess').style.display = 'none'}, 3000)
+			document.querySelector('.sucess').style.display = 'block';
+			setTimeout(function () {document.querySelector('.sucess').style.display = 'none'}, 1000)
 			}
 		next()
 		startPlay()
@@ -267,7 +274,9 @@ function addObj(){
 
 	onAlla.style.display = 'none';
 
-	setTimeout(function(){  }, 1000);
+}
+function disapp() {
+	document.querySelector('.sucess').style.display = 'none'
 }
 function playlist(){
 	let minusodd = document.getElementById('minusodd')
@@ -315,7 +324,7 @@ function playlist(){
 
 function addlove() {
 	document.querySelector('.notif-suc').style.display = 'block';
-	setTimeout(function() {document.querySelector('.notif-suc').style.display = 'block';}, 2000)
+	setTimeout(function() {document.querySelector('.notif-suc').style.display = 'none';}, 2000)
 
 	lovi.push(main[audioCou][0])
 
@@ -350,7 +359,7 @@ function lovelist() {
 
 	lovemus = localStorage.getItem("lovemusics");
 	lovi = JSON.parse(lovemus);
-	
+
 	for(let j = 1; j < lovi.length; j++){
 
 		let tr = document.createElement('tr')
