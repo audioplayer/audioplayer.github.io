@@ -324,8 +324,7 @@ function addlove() {
 
 }
 function lovelist() {
-	lovemus = localStorage.getItem("lovemusics");
-	lovi = JSON.parse(lovemus);
+	
 
 
 	let minusodd = document.getElementById('minusodd')
@@ -348,6 +347,10 @@ function lovelist() {
 	
 	tbody.remove()
 	table2.append(tbode)
+
+	lovemus = localStorage.getItem("lovemusics");
+	lovi = JSON.parse(lovemus);
+	
 	for(let j = 1; j < lovi.length; j++){
 
 		let tr = document.createElement('tr')
