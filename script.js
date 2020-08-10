@@ -7,14 +7,7 @@ let oddprev = 2;
 let oddlove = 2;
 
 let main = []
-let lovi = [{
-	album: "Curtain Call: The Hits",
-	author: "Eminem",
-	autpic: "https://cdns-images.dzcdn.net/images/artist/0707267475580b1b82f4da20a1b295c6/1000x1000-000000-80-0-0.jpg",
-	cover: "https://cdns-images.dzcdn.net/images/cover/e2b36a9fda865cb2e9ed1476b6291a7d/1000x1000-000000-80-0-0.jpg",
-	name: "Lose Yourself",
-	src: "https://cdns-preview-1.dzcdn.net/stream/c-13039fed16a173733f227b0bec631034-12.mp3"
-	}]
+let lovi = []
 
 
 let onAlla = document.querySelector('.notif')
@@ -132,10 +125,10 @@ function next () {
 	let sing = main[audioCou].name
 
 	if(sing.length > 20) {
-		sing = sing.split('').slice(0,20).join(" ") + "..."
+		sing = sing.split('').slice(0,20).join('') + "..."
 	}
 	if(txt.length > 20) {
-		txt = sing.split('').slice(0,20).join(" ") + "..."
+		txt = sing.split('').slice(0,20).join('') + "..."
 	}
 	
 
@@ -355,10 +348,10 @@ function lovelist() {
 	
 	tbody.remove()
 	table2.append(tbode)
-
-	lovemus = localStorage.getItem("lovemusics");
-	lovi = JSON.parse(lovemus);
-
+	if(localStorage.getItem("lovemusics")){
+		lovemus = localStorage.getItem("lovemusics");
+		lovi = JSON.parse(lovemus);
+	}
 	for(let j = 1; j < lovi.length; j++){
 
 		let tr = document.createElement('tr')
